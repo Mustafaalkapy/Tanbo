@@ -1,56 +1,64 @@
-// إظهار شاشة الترحيب أو الشاشة الرئيسية
-const welcomeScreen = document.getElementById('welcomeScreen');
-const mainScreen = document.getElementById('mainScreen');
-const enterBtn = document.getElementById('enterBtn');
-
-enterBtn.addEventListener('click', () => {
-    welcomeScreen.classList.add('d-none');
-    mainScreen.classList.remove('d-none');
-});
-
-// مولد المعلومات العشوائية
-const randomDataGenerator = (name) => {
-    const mothers = ["فاطمة", "زينب", "عائشة", "مريم", "خديجة"];
-    const brothers = ["علي", "حسين", "محمد", "عباس", "يوسف"];
-    const sisters = ["سارة", "ليلى", "شهد", "نور", "ريم"];
-    const phoneNumbers = ["0771XXXXXXX", "0780XXXXXXX", "0750XXXXXXX"];
-    const districts = ["الكرادة", "الجادرية", "المنصور", "الشعلة", "زيونة"];
-    const streets = ["الزقاق 1", "الزقاق 2", "الزقاق 3", "الزقاق 4"];
-    const locations = ["قرب السوق", "قرب المسجد", "قرب المدرسة", "قرب الحديقة"];
-
-    const randomMother = mothers[Math.floor(Math.random() * mothers.length)];
-    const randomBrother = brothers[Math.floor(Math.random() * brothers.length)];
-    const randomSister = sisters[Math.floor(Math.random() * sisters.length)];
-    const randomPhone = phoneNumbers[Math.floor(Math.random() * phoneNumbers.length)];
-    const randomDistrict = districts[Math.floor(Math.random() * districts.length)];
-    const randomStreet = streets[Math.floor(Math.random() * streets.length)];
-    const randomLocation = locations[Math.floor(Math.random() * locations.length)];
-
-    return `
-        <p><strong>الاسم الثلاثي:</strong> ${name}</p>
-        <p><strong>اسم الأم:</strong> ${randomMother}</p>
-        <p><strong>اسماء الإخوان:</strong> ${randomBrother}, ${randomSister}</p>
-        <p><strong>رقم هاتف العائلة:</strong> ${randomPhone}</p>
-        <p><strong>المحلة:</strong> ${randomDistrict}</p>
-        <p><strong>الزقاق:</strong> ${randomStreet}</p>
-        <p><strong>الموقع:</strong> ${randomLocation}</p>
-    `;
-};
-
-// التعامل مع زر البحث
-const searchBtn = document.getElementById('searchBtn');
-const resultDiv = document.getElementById('result');
-
-searchBtn.addEventListener('click', () => {
-    const name = document.getElementById('fullName').value.trim();
-    const age = document.getElementById('age').value.trim();
+function generateFakeInfo() {
+    const fullname = document.getElementById('fullname').value;
+    const age = document.getElementById('age').value;
     const province = document.getElementById('province').value;
 
-    if (name && age && province) {
-        // توليد معلومات عشوائية حتى إذا كان الاسم غير موجود
-        const randomData = randomDataGenerator(name);
-        resultDiv.innerHTML = randomData;
-    } else {
-        resultDiv.innerHTML = "<p class='text-danger'>يرجى ملء جميع الحقول!</p>";
+    if (fullname === '' || age === '') {
+        alert('يرجى إدخال الاسم الثلاثي والعمر.');
+        return;
     }
-});
+
+    // معلومات عشوائية
+    const fakeMotherNames = ["فاطمة", "خديجة", "زينب", "عائشة", "مريم"];
+    const fakeSiblings = ["علي", "حسين", "عباس", "زينب", "أم كلثوم"];
+    const fakePhones = ["07712345678", "07898765432", "07543210987"];
+    
+    // مناطق المحافظات
+    const provinceAreas = {
+        "بغداد": ["الحارثية", "المنصور", "الشعلة", "الكرادة", "الزعفرانية"],
+        "البصرة": ["الزبير", "القرنة", "أم قصر", "شط العرب", "أبو الخصيب"],
+        "نينوى": ["الموصل", "تلعفر", "البعاج", "الحمدانية", "سنجار"],
+        "الأنبار": ["الرمادي", "الفلوجة", "القائم", "حديثة", "هيت"],
+        "كربلاء": ["المركز", "الهندية", "الحر", "عين التمر", "الحسينية"],
+        "النجف": ["الكوفة", "المشخاب", "المناذرة", "العباسية", "الحرية"],
+        "ذي قار": ["الناصرية", "سوق الشيوخ", "الشطرة", "الرفاعي", "الغراف"],
+        "القادسية": ["الديوانية", "عفك", "الشامية", "الحمزة", "السنية"],
+        "المثنى": ["السماوة", "الرميثة", "الخضر", "الوركاء", "السوير"],
+        "ميسان": ["العمارة", "المجر", "علي الغربي", "الكحلاء", "الميمونة"],
+        "واسط": ["الكوت", "النعمانية", "الحي", "الصويرة", "الزبيدية"],
+        "بابل": ["الحلة", "المسيب", "المحاويل", "الإسكندرية", "القاسم"],
+        "ديالى": ["بعقوبة", "المقدادية", "الخالص", "بلدروز", "المنصورية"],
+        "صلاح الدين": ["تكريت", "سامراء", "الشرقاط", "الدور", "الضلوعية"],
+        "كركوك": ["كركوك", "الدبس", "الحويجة", "الرياض", "التون كوبري"],
+        "أربيل": ["أربيل", "شقلاوة", "مخمور", "كويسنجق", "حرير"],
+        "دهوك": ["دهوك", "زاخو", "العمادية", "سيميل", "عقرة"],
+        "السليمانية": ["السليمانية", "جمجمال", "رانية", "كلار", "دربندخان"],
+        "حلبجة": ["حلبجة", "خورمال", "بيارة", "سيروان", "شاربزار"]
+    };
+
+    // مناطق المحافظة المختارة
+    const neighborhoods = provinceAreas[province] || ["منطقة عشوائية"];
+
+    // توليد بيانات عشوائية
+    const motherName = fakeMotherNames[Math.floor(Math.random() * fakeMotherNames.length)];
+    const siblingNames = fakeSiblings[Math.floor(Math.random() * fakeSiblings.length)];
+    const phoneNumber = fakePhones[Math.floor(Math.random() * fakePhones.length)];
+    const neighborhood = neighborhoods[Math.floor(Math.random() * neighborhoods.length)];
+    const street = "شارع عشوائي";
+    const workplace = "مكان عمل عشوائي";
+    const job = "وظيفة عشوائية";
+
+    // عرض النتائج
+    const resultsDiv = document.getElementById('results');
+    resultsDiv.innerHTML = `
+        <p>الاسم الثلاثي: ${fullname}</p>
+        <p>اسم الأم: ${motherName}</p>
+        <p>اسماء الإخوة والأخوات: ${siblingNames}</p>
+        <p>رقم هاتف العائلة: ${phoneNumber}</p>
+        <p>المحلة: ${neighborhood}</p>
+        <p>الزقاق: ${street}</p>
+        <p>المكان بالتحديد: ${province}</p>
+        <p>مكان العمل: ${workplace}</p>
+        <p>الوظيفة: ${job}</p>
+    `;
+}
