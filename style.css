@@ -1,41 +1,20 @@
 body {
-    background-image: url('https://www.transparenttextures.com/patterns/cubes.png');
-    background-color: #f4f4f4;
+    background-color: #f8f9fa;
     font-family: 'Arial', sans-serif;
 }
 
-h1 {
-    font-size: 36px;
+.card {
+    border-radius: 10px;
+}
+
+h2 {
     color: #2c3e50;
 }
 
-.card {
-    background-color: #ffffff;
-    border-radius: 15px;
+#result {
+    border: 1px solid #ddd;
     padding: 20px;
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
-}
-
-input {
+    background-color: #fff;
     border-radius: 10px;
-    padding: 10px;
-}
-
-button {
-    background-color: #3498db;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-button:hover {
-    background-color: #2980b9;
-}
-
-#prediction {
-    font-size: 20px;
     margin-top: 20px;
 }
