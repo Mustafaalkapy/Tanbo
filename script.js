@@ -1,35 +1,56 @@
-// التنبؤات بناءً على اسم وعمر المستخدم
-const predictions = [
-    "ستكون لديك مفاجأة جميلة قريباً!",
-    "النجاح ينتظرك في المستقبل القريب.",
-    "قد تواجه تحديًا كبيرًا الأسبوع القادم.",
-    "احذر من اتخاذ قرارات متهورة قريبًا.",
-    "ستحصل على فرصة رائعة اليوم.",
-    "الصبر هو مفتاح النجاح في المرحلة القادمة."
-];
+// إظهار شاشة الترحيب أو الشاشة الرئيسية
+const welcomeScreen = document.getElementById('welcomeScreen');
+const mainScreen = document.getElementById('mainScreen');
+const enterBtn = document.getElementById('enterBtn');
 
-// تحديد العناصر
-const userNameInput = document.getElementById('userName');
-const userAgeInput = document.getElementById('userAge');
-const submitBtn = document.getElementById('submitBtn');
-const predictionText = document.getElementById('prediction');
-const questionText = document.getElementById('question');
+enterBtn.addEventListener('click', () => {
+    welcomeScreen.classList.add('d-none');
+    mainScreen.classList.remove('d-none');
+});
 
-// وظيفة تقديم التنبؤ
-submitBtn.addEventListener('click', function() {
-    const userName = userNameInput.value.trim();
-    const userAge = userAgeInput.value.trim();
-    
-    if (userName && userAge) {
-        const randomIndex = Math.floor(Math.random() * predictions.length);
-        const prediction = predictions[randomIndex];
+// مولد المعلومات العشوائية
+const randomDataGenerator = (name) => {
+    const mothers = ["فاطمة", "زينب", "عائشة", "مريم"];
+    const brothers = ["علي", "حسين", "محمد", "عباس"];
+    const sisters = ["سارة", "ليلى", "شهد", "نور"];
+    const phoneNumbers = ["0771XXXXXXX", "0780XXXXXXX", "0750XXXXXXX"];
+    const districts = ["الكرادة", "الجادرية", "المنصور", "الشعلة"];
+    const streets = ["الزقاق 1", "الزقاق 2", "الزقاق 3", "الزقاق 4"];
+    const locations = ["قرب السوق", "قرب المسجد", "قرب المدرسة"];
 
-        // التنبؤ الشخصي بناءً على اسم المستخدم
-        predictionText.textContent = `${userName}، ${prediction}`;
-        predictionText.classList.add("animate__animated", "animate__fadeIn");
-        questionText.textContent = "شكراً على الإجابة! هذا هو التنبؤ الخاص بك:";
+    const randomMother = mothers[Math.floor(Math.random() * mothers.length)];
+    const randomBrother = brothers[Math.floor(Math.random() * brothers.length)];
+    const randomSister = sisters[Math.floor(Math.random() * sisters.length)];
+    const randomPhone = phoneNumbers[Math.floor(Math.random() * phoneNumbers.length)];
+    const randomDistrict = districts[Math.floor(Math.random() * districts.length)];
+    const randomStreet = streets[Math.floor(Math.random() * streets.length)];
+    const randomLocation = locations[Math.floor(Math.random() * locations.length)];
+
+    return `
+        <p><strong>الاسم الثلاثي:</strong> ${name}</p>
+        <p><strong>اسم الأم:</strong> ${randomMother}</p>
+        <p><strong>اسماء الإخوان:</strong> ${randomBrother}, ${randomSister}</p>
+        <p><strong>رقم هاتف العائلة:</strong> ${randomPhone}</p>
+        <p><strong>المحلة:</strong> ${randomDistrict}</p>
+        <p><strong>الزقاق:</strong> ${randomStreet}</p>
+        <p><strong>الموقع:</strong> ${randomLocation}</p>
+    `;
+};
+
+// التعامل مع زر البحث
+const searchBtn = document.getElementById('searchBtn');
+const resultDiv = document.getElementById('result');
+
+searchBtn.addEventListener('click', () => {
+    const name = document.getElementById('fullName').value.trim();
+    const age = document.getElementById('age').value.trim();
+    const province = document.getElementById('province').value;
+
+    if (name && age && province) {
+        // توليد معلومات عشوائية
+        const randomData = randomDataGenerator(name);
+        resultDiv.innerHTML = randomData;
     } else {
-        predictionText.textContent = "يرجى إدخال جميع البيانات.";
-        predictionText.classList.add("animate__animated", "animate__shakeX");
+        resultDiv.innerHTML = "<p class='text-danger'>يرجى ملء جميع الحقول!</p>";
     }
 });
