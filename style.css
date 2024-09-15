@@ -1,25 +1,20 @@
-/* خلفية الموقع */
 body {
-    background-image: url('https://www.pixelstalk.net/wp-content/uploads/2016/07/HD-Background-Iraq-Photos.jpg');
-    background-size: cover;
-    background-position: center;
-    height: 100vh;
+    background-color: #f8f9fa;
     font-family: 'Arial', sans-serif;
 }
 
 .card {
-    background: rgba(0, 0, 0, 0.7);
-    border-radius: 15px;
+    border-radius: 10px;
 }
 
-h2, p {
-    color: #ecf0f1;
+h2 {
+    color: #2c3e50;
 }
 
 #result {
-    border: 2px solid #2ecc71;
+    border: 1px solid #ddd;
     padding: 20px;
-    background-color: #ecf0f1;
+    background-color: #fff;
     border-radius: 10px;
     margin-top: 20px;
 }
