@@ -1,26 +1,35 @@
-// مجموعة التنبؤات
+// التنبؤات بناءً على اسم وعمر المستخدم
 const predictions = [
     "ستكون لديك مفاجأة جميلة قريباً!",
     "النجاح ينتظرك في المستقبل القريب.",
     "قد تواجه تحديًا كبيرًا الأسبوع القادم.",
     "احذر من اتخاذ قرارات متهورة قريبًا.",
     "ستحصل على فرصة رائعة اليوم.",
-    "الصبر هو مفتاح النجاح في المرحلة القادمة.",
-    "أنت قريب من تحقيق حلمك!",
-    "فرصة غير متوقعة ستظهر في طريقك.",
-    "ركز على تحسين نفسك في الأيام القادمة.",
-    "سيحدث تغيير إيجابي في حياتك قريباً."
+    "الصبر هو مفتاح النجاح في المرحلة القادمة."
 ];
 
-// مرجع للعناصر في الصفحة
-const predictionText = document.getElementById("prediction");
-const predictBtn = document.getElementById("predict-btn");
+// تحديد العناصر
+const userNameInput = document.getElementById('userName');
+const userAgeInput = document.getElementById('userAge');
+const submitBtn = document.getElementById('submitBtn');
+const predictionText = document.getElementById('prediction');
+const questionText = document.getElementById('question');
 
-// وظيفة توليد التنبؤ
-function generatePrediction() {
-    const randomIndex = Math.floor(Math.random() * predictions.length);
-    predictionText.textContent = predictions[randomIndex];
-}
+// وظيفة تقديم التنبؤ
+submitBtn.addEventListener('click', function() {
+    const userName = userNameInput.value.trim();
+    const userAge = userAgeInput.value.trim();
+    
+    if (userName && userAge) {
+        const randomIndex = Math.floor(Math.random() * predictions.length);
+        const prediction = predictions[randomIndex];
 
-// حدث الضغط على الزر
-predictBtn.addEventListener("click", generatePrediction);
+        // التنبؤ الشخصي بناءً على اسم المستخدم
+        predictionText.textContent = `${userName}، ${prediction}`;
+        predictionText.classList.add("animate__animated", "animate__fadeIn");
+        questionText.textContent = "شكراً على الإجابة! هذا هو التنبؤ الخاص بك:";
+    } else {
+        predictionText.textContent = "يرجى إدخال جميع البيانات.";
+        predictionText.classList.add("animate__animated", "animate__shakeX");
+    }
+});
