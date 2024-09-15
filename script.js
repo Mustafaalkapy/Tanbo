@@ -8,12 +8,10 @@ function generateFakeInfo() {
         return;
     }
 
-    // معلومات عشوائية
     const fakeMotherNames = ["فاطمة", "خديجة", "زينب", "عائشة", "مريم"];
     const fakeSiblings = ["علي", "حسين", "عباس", "زينب", "أم كلثوم"];
     const fakePhones = ["07712345678", "07898765432", "07543210987"];
-    
-    // مناطق المحافظات
+
     const provinceAreas = {
         "بغداد": ["الحارثية", "المنصور", "الشعلة", "الكرادة", "الزعفرانية"],
         "البصرة": ["الزبير", "القرنة", "أم قصر", "شط العرب", "أبو الخصيب"],
@@ -36,10 +34,8 @@ function generateFakeInfo() {
         "حلبجة": ["حلبجة", "خورمال", "بيارة", "سيروان", "شاربزار"]
     };
 
-    // مناطق المحافظة المختارة
     const neighborhoods = provinceAreas[province] || ["منطقة عشوائية"];
 
-    // توليد بيانات عشوائية
     const motherName = fakeMotherNames[Math.floor(Math.random() * fakeMotherNames.length)];
     const siblingNames = fakeSiblings[Math.floor(Math.random() * fakeSiblings.length)];
     const phoneNumber = fakePhones[Math.floor(Math.random() * fakePhones.length)];
@@ -48,7 +44,6 @@ function generateFakeInfo() {
     const workplace = "مكان عمل عشوائي";
     const job = "وظيفة عشوائية";
 
-    // عرض النتائج
     const resultsDiv = document.getElementById('results');
     resultsDiv.innerHTML = `
         <p>الاسم الثلاثي: ${fullname}</p>
