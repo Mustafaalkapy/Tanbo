@@ -8,18 +8,18 @@ body {
 }
 
 .card {
-    background: rgba(0, 0, 0, 0.7);
+    background: rgba(0, 0, 0, 0.8); /* لون أسود مع شفافية */
     border-radius: 15px;
 }
 
 h2, p {
-    color: #ecf0f1;
+    color: #ffffff; /* لون النص أبيض */
 }
 
 #result {
-    border: 2px solid #2ecc71;
+    border: 2px solid #ffffff; /* لون الحدود أبيض */
     padding: 20px;
-    background-color: #ecf0f1;
+    background-color: #000000; /* لون الخلفية أسود */
     border-radius: 10px;
     margin-top: 20px;
 }
