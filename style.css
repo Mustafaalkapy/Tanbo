@@ -1,47 +1,25 @@
-/* تصميم خلفية الشاشة الرئيسية والترحيب */
-#welcomeScreen, #mainScreen {
-    color: #ffffff; /* لون النص أبيض */
-    background-color: #000000; /* خلفية سوداء */
+/* خلفية الموقع */
+body {
+    background-image: url('https://www.pixelstalk.net/wp-content/uploads/2016/07/HD-Background-Iraq-Photos.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    font-family: 'Arial', sans-serif;
 }
 
-/* تصميم الأزرار */
-button {
-    background-color: #444; /* خلفية داكنة للأزرار */
-    color: #ffffff; /* نص أبيض على الأزرار */
-    border: 1px solid #666; /* حدود داكنة */
-    border-radius: 5px;
-    padding: 10px 20px;
-    cursor: pointer;
-    font-size: 16px; /* حجم الخط للأزرار */
+.card {
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 15px;
 }
 
-button:hover {
-    background-color: #555; /* خلفية أفتح عند التحويم على الزر */
+h2, p {
+    color: #ecf0f1;
 }
 
-/* تصميم إدخال البيانات */
-.form-select, .form-control {
-    background-color: #333; /* خلفية داكنة لحقول الإدخال */
-    color: #ffffff; /* نص أبيض في حقول الإدخال */
-    border: 1px solid #444; /* حدود داكنة */
-}
-
-.form-select:focus, .form-control:focus {
-    border-color: #555; /* تغيير لون الحدود عند التركيز */
-    box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.25); /* ظل خفيف عند التركيز */
-}
-
-/* تصميم نتائج البحث */
 #result {
-    border: 2px solid #ffffff; /* لون الحدود أبيض */
+    border: 2px solid #2ecc71;
     padding: 20px;
-    background-color: #222; /* خلفية داكنة للنتائج */
-    color: #ffffff; /* نص أبيض للنتائج */
+    background-color: #ecf0f1;
     border-radius: 10px;
     margin-top: 20px;
-}
-
-/* تصميم رسالة خطأ */
-.text-danger {
-    color: #ff4d4d; /* لون النص أحمر للرسائل التنبيهية */
 }
