@@ -8,37 +8,36 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container text-center mt-5">
+    <div class="container-fluid text-center mt-5">
         <!-- شاشة الدخول -->
-        <div id="welcomeScreen" class="card p-4 shadow-lg">
-            <h1 class="text-primary">الدخول إلى التطبيق</h1>
-            <button id="enterBtn" class="btn btn-primary mt-3">ادخل الآن</button>
+        <div id="welcomeScreen" class="card p-5 shadow-lg bg-transparent border-0 text-white">
+            <h1 class="text-light">الدخول إلى التطبيق</h1>
+            <button id="enterBtn" class="btn btn-outline-light mt-3 px-5 py-2">ادخل الآن</button>
         </div>
 
-        <!-- شاشة البيانات الرئيسية -->
-        <div id="mainScreen" class="card p-4 shadow-lg d-none">
-            <h2>أهلاً وسهلاً في تطبيق بيانات العراق</h2>
+        <!-- الشاشة الرئيسية -->
+        <div id="mainScreen" class="card p-5 shadow-lg d-none bg-transparent border-0 text-white">
+            <h2 class="text-light">أهلاً وسهلاً في تطبيق بيانات العراق</h2>
             <p>اختر المحافظة وأدخل اسمك الثلاثي وعمر</p>
             
             <!-- اختيار المحافظة -->
-            <select id="province" class="form-select mb-3">
+            <select id="province" class="form-select mb-3 text-dark">
                 <option value="" disabled selected>اختر المحافظة</option>
+                <!-- المحافظات -->
                 <option value="بغداد">بغداد</option>
                 <option value="البصرة">البصرة</option>
-                <option value="الموصل">الموصل</option>
-                <option value="كربلاء">كربلاء</option>
-                <!-- أضف المزيد من المحافظات هنا -->
+                <!-- باقي المحافظات -->
             </select>
 
             <!-- إدخال الاسم والعمر -->
-            <input type="text" id="fullName" class="form-control mb-3" placeholder="ادخل الاسم الثلاثي">
-            <input type="number" id="age" class="form-control mb-3" placeholder="ادخل العمر">
+            <input type="text" id="fullName" class="form-control mb-3 text-dark" placeholder="ادخل الاسم الثلاثي">
+            <input type="number" id="age" class="form-control mb-3 text-dark" placeholder="ادخل العمر">
 
             <!-- زر البحث -->
-            <button id="searchBtn" class="btn btn-success">ابحث</button>
+            <button id="searchBtn" class="btn btn-outline-light px-5 py-2">ابحث</button>
 
             <!-- عرض النتائج -->
-            <div id="result" class="mt-4 text-start"></div>
+            <div id="result" class="mt-4 text-start bg-light p-3 rounded text-dark"></div>
         </div>
     </div>
 
