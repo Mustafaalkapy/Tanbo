@@ -1,53 +1,54 @@
 ‏<!DOCTYPE html>
-‏<html lang="ar">
-‏<head>
-‏    <meta charset="UTF-8">
-‏    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-‏    <title>تطبيق بيانات العراق</title>
-‏    <link rel="stylesheet" href="styles.css">
-‏</head>
-‏<body>
-‏    <div class="container">
-‏        <div class="welcome">
-‏            <h1>اهلا وسهلا في تطبيق بيانات العراق</h1>
-‏        </div>
-‏        <div class="province-selection">
-‏            <label for="province">اختر المحافظة:</label><select id="province">
-‏    <option value="بغداد">بغداد</option>
-‏    <option value="البصرة">البصرة</option>
-‏    <option value="نينوى">نينوى</option>
-‏    <option value="الأنبار">الأنبار</option>
-‏    <option value="كربلاء">كربلاء</option>
-‏    <option value="النجف">النجف</option>
-‏    <option value="ذي قار">ذي قار</option>
-‏    <option value="القادسية">القادسية</option>
-‏    <option value="المثنى">المثنى</option>
-‏    <option value="ميسان">ميسان</option>
-‏    <option value="واسط">واسط</option>
-‏    <option value="بابل">بابل</option>
-‏    <option value="ديالى">ديالى</option>
-‏    <option value="صلاح الدين">صلاح الدين</option>
-‏    <option value="كركوك">كركوك</option>
-‏    <option value="أربيل">أربيل</option>
-‏    <option value="دهوك">دهوك</option>
-‏    <option value="السليمانية">السليمانية</option>
-‏    <option value="حلبجة">حلبجة</option>
-‏    <option value="النجف">النجف</option>
-‏</select> </div>
-‏        <div class="input-fields">
-‏            <input type="text" id="fullname" placeholder="الاسم الثلاثي">
-‏            <input type="number" id="age" placeholder="العمر">
-‏        </div>
-‏        <button onclick="generateFakeInfo()">البحث</button>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تطبيق بيانات العراق</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <h1>أهلا وسهلا في تطبيق بيانات العراق</h1>
+        <div class="input-section">
+            <label for="province">اختر المحافظة:</label>
+            <select id="province">
+                <option value="ميسان">ميسان</option>
+                <option value="بغداد">بغداد</option>
+                <option value="البصرة">البصرة</option>
+                <option value="نينوى">نينوى</option>
+                <option value="الأنبار">الأنبار</option>
+                <option value="كربلاء">كربلاء</option>
+                <option value="النجف">النجف</option>
+                <option value="ذي قار">ذي قار</option>
+                <option value="القادسية">القادسية</option>
+                <option value="المثنى">المثنى</option>
+                <option value="واسط">واسط</option>
+                <option value="بابل">بابل</option>
+                <option value="ديالى">ديالى</option>
+                <option value="صلاح الدين">صلاح الدين</option>
+                <option value="كركوك">كركوك</option>
+                <option value="أربيل">أربيل</option>
+                <option value="دهوك">دهوك</option>
+                <option value="السليمانية">السليمانية</option>
+                <option value="حلبجة">حلبجة</option>
+            </select>
 
-‏        <div id="results" class="results">
-            <!-- سيتم عرض النتائج هنا -->
-‏        </div>
-‏    </div>
-‏    <footer>
-‏        <p>صوفي</p>
-‏    </footer>
+            <label for="fullname">الاسم الثلاثي:</label>
+            <input type="text" id="fullname" placeholder="أدخل الاسم الثلاثي">
 
-‏    <script src="script.js"></script>
-‏</body>
-‏</html>
+            <label for="age">العمر:</label>
+            <input type="number" id="age" placeholder="أدخل العمر">
+
+            <button onclick="generateFakeInfo()">البحث</button>
+        </div>
+
+        <div id="results" class="results-section"></div>
+
+        <footer>
+            <p>صوفي</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
